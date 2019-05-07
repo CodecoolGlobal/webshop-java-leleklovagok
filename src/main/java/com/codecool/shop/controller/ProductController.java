@@ -37,9 +37,6 @@ public class ProductController extends HttpServlet {
 
         if (addId != null) {
             shoppingCartStore.add(productDataStore.find(Integer.parseInt(addId)));
-            for (Product product: shoppingCartStore.getAll()) {
-                System.out.println(product);
-            }
         }
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
