@@ -3,6 +3,10 @@
     background-position: center;
 }
 
+.footer {
+    background: transparent;
+}
+
 body {
     background-image: url("../img/rune1.jpg");
     background-repeat: no-repeat;
