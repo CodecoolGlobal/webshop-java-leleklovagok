@@ -8,7 +8,6 @@ import java.util.List;
 
 public class ShoppingCartDaoMem implements ShoppingCartDao {
     private List<Product> cart = new ArrayList<>();
-    private int quantity;
     private static ShoppingCartDaoMem instance = null;
 
     private ShoppingCartDaoMem() {
