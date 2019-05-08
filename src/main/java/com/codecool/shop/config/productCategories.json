@@ -1,0 +1,21 @@
+[
+  {
+    "id": "1",
+    "name": "Varázspálcák",
+    "department": "Hardware2",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display."
+  },
+  {
+    "id": "2",
+    "name": "Látó botok",
+    "department": "Hardware2",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display."
+  },
+  {
+    "id": "3",
+    "name": "Látó szemüvegek",
+    "department": "Hardware2",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display."
+  }
+
+]
