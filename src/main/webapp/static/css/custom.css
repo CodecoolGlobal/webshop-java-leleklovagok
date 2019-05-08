@@ -61,3 +61,10 @@
 {
     margin: 0 0 11px;
 }
+.padding-30-sides {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.margin-30-top {
+    margin-top: 30px;
+}

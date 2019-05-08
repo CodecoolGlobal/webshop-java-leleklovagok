@@ -1,27 +1,39 @@
 [
   {
     "name": "Bűvös pálca1",
-    "defaultPrice": 6000,
+    "defaultPrice": 8000,
     "currencyString": "EUR",
     "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": "1",
-    "supplier": "1"
+    "productCategory": 1,
+    "supplier": 1,
+    "img": "palca1"
   },
   {
     "name": "Bűvös pálca2",
-    "defaultPrice": 6000,
+    "defaultPrice": 5000,
     "currencyString": "EUR",
     "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": "1",
-    "supplier": "1"
+    "productCategory": 1,
+    "supplier": 1,
+    "img": "sziv angyal"
   },
   {
     "name": "Bűvös pálca3",
-    "defaultPrice": 6000,
+    "defaultPrice": 4000,
     "currencyString": "EUR",
     "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": "2",
-    "supplier": "1"
+    "productCategory": 1,
+    "supplier": 1,
+    "img": "inga"
+  },
+  {
+    "name": "Látó szemüveg",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 1,
+    "supplier": 1,
+    "img": "product_3"
   }
 ]
 

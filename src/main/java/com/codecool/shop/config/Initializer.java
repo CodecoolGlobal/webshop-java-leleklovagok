@@ -45,13 +45,15 @@ public class Initializer implements ServletContextListener {
 
 
 
-        //setting up a new supplier
+        /*setting up a new supplier
         Supplier amazon = new Supplier("Amazon", "Digital content and services");
         supplierDataStore.add(amazon);
         Supplier lenovo = new Supplier("Lenovo", "Computers");
         supplierDataStore.add(lenovo);
 
-        //setting up a new product category
+         */
+
+        // Read JSON files
         JSONParser parser = new JSONParser();
         JSONArray productCategoriesArray = null;
         JSONArray suppliersArray = null;
@@ -75,18 +77,47 @@ public class Initializer implements ServletContextListener {
         } catch (ParseException e) {
             e.printStackTrace();
         }
-        for (Object o : productsArray) {
-            JSONObject product = (JSONObject) o;
-            String name = (String) product.get("name");
-            System.out.println("*****************************************************************************");
-            System.out.println(name);
-            ProductCategory tablet = new ProductCategory(name, name, name);
-            productCategoryDataStore.add(tablet);
+
+        // Create suppliers
+        for (Object o : suppliersArray) {
+            JSONObject item = (JSONObject) o;
+            Supplier newRecord = new Supplier(
+                    (String) item.get("name"),
+                    (String) item.get("description")
+               );
+            supplierDataStore.add(newRecord);
         }
 
-        System.out.println(getElementById ("1", jsonArray));
+        //Create product categories
+        for (Object o : productCategoriesArray) {
+            JSONObject item = (JSONObject) o;
+            ProductCategory newRecord = new ProductCategory(
+                    (String) item.get("name"),
+                    (String) item.get("department"),
+                    (String) item.get("description")
+            );
+            productCategoryDataStore.add(newRecord);
+        }
 
-        productCategoryDataStore.find(1);
+        //Create products
+        for (Object o : productsArray) {
+            JSONObject item = (JSONObject) o;
+            Long productCategoryNo = (Long) item.get("productCategory");
+            Long supplierNo = (Long) item.get("supplier");
+            Long defaultPrice = (Long) item.get("defaultPrice");
+            Product newRecord = new Product(
+                    (String) item.get("name"),
+                    defaultPrice.intValue(),
+                    (String) item.get("currencyString"),
+                    (String) item.get("description"),
+                    productCategoryDataStore.find(productCategoryNo.intValue()),
+                    supplierDataStore.find(supplierNo.intValue()),
+                    (String) item.get("img")
+                    //productCategoryDataStore.find(1 ),
+                    //supplierDataStore.find(1)
+            );
+            productDataStore.add(newRecord);
+        }
 
 
         // ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");

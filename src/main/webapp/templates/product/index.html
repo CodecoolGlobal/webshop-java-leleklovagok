@@ -25,7 +25,17 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
 
+    <!-- Material Design Bootstrap -->
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <script src="/static/js/mdb.js" defer></script>
+    <script src="/static/js/popper.min.js" defer></script>
+
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <script src="/static/js/popper.min.js" defer></script>
+    <script src="/static/js/custom.js" defer></script>
+
+
+
 </head>
 
 <body>
@@ -35,16 +45,30 @@
 </div>
 
 <div class="container">
-    <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+    <div class="card padding-30-sides">
+        <select id="categorySelector" class="mdb-select md-form colorful-select dropdown-primary margin-30-sides">
+            <option value="" disabled selected>Select product category</option>
+            <option th:each="category : ${categories}" th:value="${category.id}" th:selected="${category.id==75}">
+                <a  th:href="@{/(categoryId=${category.id})}" th:text="${category.name}"></a>
+            </option>
+
+        </select>
     </div>
 
+
     <div id="products" class="row">
-        <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
-            <div class="card">
-                <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
+        <div class="col col-sm-12 col-md-6 col-lg-4 margin-30-top" th:each="prod,iterStat : ${products}">
+            <div class="card card-cascade narrower card-ecommerce">
+                <div class="view view-cascade overlay">
+                    <img class="card-img-top" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/' + ${prod.img} + '.jpg'" alt="" />
+                    <a>
+                        <div class="mask rgba-white-slight"></div>
+                    </a>
+                </div>
+
+
                 <div class="card-header">
-                    <h4 class="card-title" th:text="${prod.name}">Product name</h4>
+                    <h4 class="card-title" th:utext="${prod.name}">Product name</h4>
                     <p class="card-text" th:text="${prod.description}">Product description... </p>
                 </div>
                 <div class="card-body">
