@@ -14,7 +14,7 @@
     "currencyString": "EUR",
     "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
     "productCategory": 1,
-    "supplier": 1,
+    "supplier": 2,
     "img": "sziv angyal"
   },
   {
@@ -22,7 +22,7 @@
     "defaultPrice": 4000,
     "currencyString": "EUR",
     "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": 1,
+    "productCategory": 3,
     "supplier": 1,
     "img": "inga"
   },

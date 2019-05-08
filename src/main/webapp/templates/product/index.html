@@ -46,25 +46,31 @@
 </div>
 
 <div class="container">
-    <div class="card padding-30-sides">
-        <select id="categorySelector" class="mdb-select md-form colorful-select dropdown-primary margin-30-sides">
-            <option value="" disabled selected>Select product category</option>
-            <option th:each="category : ${categories}" th:value="${category.id}" th:selected="${category.id==75}">
-                <a  th:href="@{/(categoryId=${category.id})}" th:text="${category.name}"></a>
-            </option>
+    <div class="row">
+        <div class="col-6">
+            <div class="card padding-30-sides secondary-color white-text">
+                <select id="categorySelector" class="mdb-select md-form colorful-select dropdown-primary margin-30-sides dark white-text dropdown-secondary">
+                   <!-- <option value="" disabled th:selected="${currentCategory==0}">Select product category</option> -->
+                    <option value="" disabled selected>Select categoryr</option>
+                    <option th:each="category : ${categories}" th:value="${category.id}" th:selected="${category.id==currentCategory}" th:text="${category.name}">
+                    </option>
 
-        </select>
-    <div class="card">
-        <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Supplier
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <a class="dropdown-item" th:each="supplier: ${suppliers}" th:href="@{/(supplierId=${supplier.id})}" th:text="${supplier.name}"></a>
+                </select>
             </div>
         </div>
-    </div>
 
+        <div class="col-6">
+            <div class="card padding-30-sides secondary-color white-text">
+                <select id="supplierSelector" class="mdb-select md-form colorful-select dropdown-primary margin-30-sides dark white-text dropdown-secondary">
+                    <option value="" disabled selected>Select supplier</option>
+                    <option th:each="supplier: ${suppliers}" th:value="${supplier.id}" th:selected="${supplier.id==currentSupplier}" th:text="${supplier.name}">
+                    </option>
+
+                </select>
+            </div>
+        </div>
+
+    </div>
 
     <div id="products" class="row">
         <div class="col col-sm-12 col-md-6 col-lg-4 margin-30-top" th:each="prod,iterStat : ${products}">
