@@ -41,7 +41,6 @@ public class SupplierDaoMem implements SupplierDao {
 
     @Override
     public List<Supplier> getAll() {
-        System.out.println(data);
         return data;
     }
 }

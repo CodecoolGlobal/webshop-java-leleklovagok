@@ -33,16 +33,15 @@ public class ProductController extends HttpServlet {
 
         //NullPointerException HERE, id is null at first launch
         String id = req.getParameter("supplierId");
-        System.out.println(id);
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("suppliers", supplierDataStore.getAll());
         context.setVariable("categories", productCategoryDataStore.getAll());
-        if (id.equals(null)) {
+        if (id == null) {
             context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         } else {
-            context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(Integer.parseInt(id))));
+            context.setVariable("products", productDataStore.getBy(supplierDataStore.find(Integer.parseInt(id))));
         }
         engine.process("product/index.html", context, resp.getWriter());
     }
