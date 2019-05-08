@@ -8,6 +8,9 @@
     <title>Codecool Shop</title>
 
     <!-- Bootstrap components -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <!-- Latest compiled and minified Jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -102,6 +105,168 @@
                     <div class="card-text">
                         <a class="btn btn-success" th:href="@{/(id=${prod.id})}">Add to cart</a>
                     </div>
+
+
+                    <!-- Modal for comments -->
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll-1">Kommentek</button>
+
+                    <!-- Modal: modalPoll -->
+                    <div class="modal fade right" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                         aria-hidden="true" data-backdrop="false">
+                        <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
+                            <div class="modal-content">
+                                <!--Header-->
+                                <div class="modal-header">
+                                    <p class="heading lead">Kommentek
+                                    </p>
+
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true" class="white-text">×</span>
+                                    </button>
+                                </div>
+
+                                <!--Body-->
+                                <div class="modal-body">
+
+
+                                    <!-- Section: Social newsfeed v.1 -->
+                                    <section class="my-5">
+
+                                        <!-- Grid row -->
+                                        <div class="row">
+
+                                            <!-- Grid column -->
+                                            <div class="col-md-12">
+
+                                                <!-- Newsfeed -->
+                                                <div class="mdb-feed">
+
+                                                    <!-- News1 -->
+                                                    <div class="news">
+                                                        <!-- Label -->
+                                                        <div class="label">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" class="rounded-circle z-depth-1-half">
+                                                        </div>
+                                                        <!-- Excerpt -->
+                                                        <div class="excerpt">
+                                                            <!-- Brief -->
+                                                            <div class="brief">
+                                                                <a class="name">Péter Borsos</a> posted on his page
+                                                                <div class="date">2 hours ago </div>
+                                                            </div>
+                                                            <!-- Added text -->
+                                                            <div class="added-text">EZ NAGYON MŰKÖDIK!!!</div>
+                                                            <!-- Feed footer -->
+                                                            <div class="feed-footer">
+                                                                <a class="like">
+                                                                    <i class="fas fa-heart"></i>
+                                                                    <span>623456 likes</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Excerpt -->
+                                                    </div>
+                                                    <!-- News 1 - end -->
+
+                                                    <!-- News2 -->
+                                                    <div class="news">
+                                                        <!-- Label -->
+                                                        <div class="label">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" class="rounded-circle z-depth-1-half">
+                                                        </div>
+                                                        <!-- Excerpt -->
+                                                        <div class="excerpt">
+                                                            <!-- Brief -->
+                                                            <div class="brief">
+                                                                <a class="name">Péter Borsos</a> posted on his page
+                                                                <div class="date">2 hours ago </div>
+                                                            </div>
+                                                            <!-- Added text -->
+                                                            <div class="added-text">EZ NAGYON MŰKÖDIK!!!</div>
+                                                            <!-- Feed footer -->
+                                                            <div class="feed-footer">
+                                                                <a class="like">
+                                                                    <i class="fas fa-heart"></i>
+                                                                    <span>623456 likes</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Excerpt -->
+                                                    </div>
+                                                    <!-- News 2 - end -->
+
+                                                    <!-- News3 -->
+                                                    <div class="news">
+                                                        <!-- Label -->
+                                                        <div class="label">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" class="rounded-circle z-depth-1-half">
+                                                        </div>
+                                                        <!-- Excerpt -->
+                                                        <div class="excerpt">
+                                                            <!-- Brief -->
+                                                            <div class="brief">
+                                                                <a class="name">Tamás Pataky</a> posted on his page
+                                                                <div class="date">2 hours ago </div>
+                                                            </div>
+                                                            <!-- Added text -->
+                                                            <div class="added-text">EZ NAGYON MŰKÖDIK!!!</div>
+                                                            <!-- Feed footer -->
+                                                            <div class="feed-footer">
+                                                                <a class="like">
+                                                                    <i class="fas fa-heart"></i>
+                                                                    <span>623456 likes</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Excerpt -->
+                                                    </div>
+                                                    <!-- News 3 - end -->
+
+                                                    <!-- News4 -->
+                                                    <div class="news">
+                                                        <!-- Label -->
+                                                        <div class="label">
+                                                            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" class="rounded-circle z-depth-1-half">
+                                                        </div>
+                                                        <!-- Excerpt -->
+                                                        <div class="excerpt">
+                                                            <!-- Brief -->
+                                                            <div class="brief">
+                                                                <a class="name">Péter Borsos</a> posted on his page
+                                                                <div class="date">2 hours ago </div>
+                                                            </div>
+                                                            <!-- Added text -->
+                                                            <div class="added-text">EZ NAGYON MŰKÖDIK!!!</div>
+                                                            <!-- Feed footer -->
+                                                            <div class="feed-footer">
+                                                                <a class="like">
+                                                                    <i class="fas fa-heart"></i>
+                                                                    <span>623456 likes</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                        <!-- Excerpt -->
+                                                    </div>
+                                                    <!-- News 4 - end -->
+
+                                                </div>
+                                                <!-- Newsfeed -->
+                                            </div>
+                                            <!-- Grid column -->
+                                        </div>
+                                        <!-- Grid row -->
+
+                                    </section>
+                                    <!-- Section: Social newsfeed v.1 -->
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal: modalPoll -->
+
+
+
                     </div>
 
 
