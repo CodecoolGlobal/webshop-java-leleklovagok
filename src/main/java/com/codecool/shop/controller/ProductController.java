@@ -30,7 +30,7 @@ public class ProductController extends HttpServlet {
         ShoppingCartDao shoppingCartStore = ShoppingCartDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         SupplierDaoMem supplierDataStore = SupplierDaoMem.getInstance();
-
+        resp.setCharacterEncoding("UTF-8");
 //        Map params = new HashMap<>();
 //        params.put("category", productCategoryDataStore.find(1));
 //        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
