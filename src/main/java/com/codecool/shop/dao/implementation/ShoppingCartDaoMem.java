@@ -3,11 +3,10 @@ package com.codecool.shop.dao.implementation;
 import com.codecool.shop.dao.ShoppingCartDao;
 import com.codecool.shop.model.Product;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
 public class ShoppingCartDaoMem implements ShoppingCartDao {
-    private List<Product> cart = new ArrayList<>();
+    private HashMap<Product, Integer> cart = new HashMap<>();
     private static ShoppingCartDaoMem instance = null;
 
     private ShoppingCartDaoMem() {
@@ -23,7 +22,10 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
 
     @Override
     public void add(Product product) {
-        cart.add(product);
+        if (cart.containsKey(product)) {
+            cart.get(product)++;
+        }
+        cart.put(product, 1);
     }
 
     @Override
@@ -38,7 +40,7 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
     }
 
     @Override
-    public List<Product> getAll() {
+    public HashMap<Product, Integer> getAll() {
         return cart;
     }
 
