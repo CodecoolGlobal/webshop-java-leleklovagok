@@ -37,7 +37,14 @@
 
 <div class="container">
     <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
+        <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Supplier
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" th:each="supplier: ${suppliers}" th:href="@{/(supplierId=${supplier.id})}" th:text="${supplier.name}"></a>
+            </div>
+        </div>
     </div>
 
     <div id="products" class="row">
