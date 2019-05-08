@@ -2,12 +2,14 @@
   {
     "id": "1",
     "name": "Marika a látó",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display."
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "img": "marika"
   },
   {
     "id": "2",
     "name": "Erzsike a gyógyító",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display."
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "img": "palca1"
   }
 ]
 

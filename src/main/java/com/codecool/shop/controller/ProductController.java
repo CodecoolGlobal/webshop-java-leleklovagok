@@ -64,6 +64,7 @@ public class ProductController extends HttpServlet {
 
         if (supplierId > 0) {
             context.setVariable("products", productDataStore.getBy(supplierDataStore.find(supplierId)));
+            context.setVariable("supplier", supplierDataStore.find(supplierId));
         } else if (categoryId > 0) {
             context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(categoryId)));
         } else {

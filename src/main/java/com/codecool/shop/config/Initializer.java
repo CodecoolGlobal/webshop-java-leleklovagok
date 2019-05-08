@@ -90,7 +90,8 @@ public class Initializer implements ServletContextListener {
             JSONObject item = (JSONObject) o;
             Supplier newRecord = new Supplier(
                     (String) item.get("name"),
-                    (String) item.get("description")
+                    (String) item.get("description"),
+                    (String) item.get("img")
                );
             supplierDataStore.add(newRecord);
         }
