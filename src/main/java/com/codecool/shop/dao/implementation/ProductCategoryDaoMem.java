@@ -42,6 +42,7 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
 
     @Override
     public List<ProductCategory> getAll() {
+        System.out.println(data);
         return data;
     }
 }
