@@ -33,8 +33,8 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
 
 
     @Override
-    public void remove(int id) {
-        cart.remove(find(id));
+    public void remove(Product product) {
+        cart.remove(product);
     }
 
     @Override
