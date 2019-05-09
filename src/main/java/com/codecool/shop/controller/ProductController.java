@@ -47,8 +47,7 @@ public class ProductController extends HttpServlet {
         if (reqCategoryId != null) {
             categoryId = Integer.parseInt(reqCategoryId);
         }
-        System.out.println("categoryId");
-        System.out.println(categoryId);
+
 
         String addId = req.getParameter("id");
 
@@ -61,8 +60,11 @@ public class ProductController extends HttpServlet {
         context.setVariable("suppliers", supplierDataStore.getAll());
         context.setVariable("categories", productCategoryDataStore.getAll());
 
+        if (supplierId > 0 && categoryId > 0) {
+            context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(categoryId), supplierDataStore.find(supplierId)));
+            context.setVariable("supplier", supplierDataStore.find(supplierId));
 
-        if (supplierId > 0) {
+        } else if (supplierId > 0) {
             context.setVariable("products", productDataStore.getBy(supplierDataStore.find(supplierId)));
             context.setVariable("supplier", supplierDataStore.find(supplierId));
         } else if (categoryId > 0) {
@@ -74,7 +76,7 @@ public class ProductController extends HttpServlet {
         context.setVariable("currentCategory", categoryId);
         context.setVariable("currentSupplier", supplierId);
 
-        context.setVariable("quantity", shoppingCartStore.getSize());
+        context.setVariable("quantity", shoppingCartStore.getTotalProductNr());
         engine.process("product/index.html", context, resp.getWriter());
 
     }
