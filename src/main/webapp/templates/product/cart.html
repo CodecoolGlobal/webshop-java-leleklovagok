@@ -36,8 +36,15 @@
         </div>
     </div>
     <div class="alert secondary-color margin-30-top" role="alert">
-        <div class="totalprice " th:text="Total + ' ' + Price + '    ' + ${totalPrice}"></div>
+        <span class="totalprice " th:text="Total + ' ' + Price + '    ' + ${totalPrice}">
+        </span>
     </div>
+    <div class="col-12">
+        <a  th:href="'/checkout-cart?categoryId=' + ${currentCategory} + '&supplierId=' + ${currentSupplier}">
+            <button type="button" class="btn peach-gradient btn-lg btn-block">Purchase</button>
+        </a>
+    </div>
+
 
 </div>
 

@@ -5,31 +5,33 @@
 <body>
 <div th:replace="header.html :: header"></div>
 <div class="container-fluid margin-90-top">
-    <div class="row">
+    <div class="row justify-content-md-center">
         <div class="col-6">
-            <form action="checkout-summary" method="post">
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Name</label>
-                    <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Name">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">E-mail</label>
-                    <input type="text" name="email" class="form-control" id="formGroupExampleInput2" placeholder="E-mail">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput">Phone number</label>
-                    <input type="text" name="phone" class="form-control" id="formGroupExampleInput3" placeholder="Phone number">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Billing Address</label>
-                    <input type="text" name="billing" class="form-control" id="formGroupExampleInput4" placeholder="Billing Address">
-                </div>
-                <div class="form-group">
-                    <label for="formGroupExampleInput2">Shipping Address</label>
-                    <input type="text" name="shipping" class="form-control" id="formGroupExampleInput5" placeholder="Shipping Address">
-                </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
+            <div class="card padding-30-sides margin-30-bottom secondary-color white-text padding-30">
+                <form action="checkout-summary" method="post">
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Name</label>
+                        <input type="text" name="name" class="form-control" id="formGroupExampleInput" placeholder="Name">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">E-mail</label>
+                        <input type="text" name="email" class="form-control" id="formGroupExampleInput2" placeholder="E-mail">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput">Phone number</label>
+                        <input type="text" name="phone" class="form-control" id="formGroupExampleInput3" placeholder="Phone number">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Billing Address</label>
+                        <input type="text" name="billing" class="form-control" id="formGroupExampleInput4" placeholder="Billing Address">
+                    </div>
+                    <div class="form-group">
+                        <label for="formGroupExampleInput2">Shipping Address</label>
+                        <input type="text" name="shipping" class="form-control" id="formGroupExampleInput5" placeholder="Shipping Address">
+                    </div>
+                    <button type="submit" class="btn peach-gradient">Tovább</button>
+                 </form>
+            </div>
         </div>
     </div>
 </div>
