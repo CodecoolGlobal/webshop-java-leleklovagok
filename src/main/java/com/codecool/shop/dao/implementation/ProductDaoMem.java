@@ -50,17 +50,7 @@ public class ProductDaoMem implements ProductDao {
     }
 
     @Override
-
-    <meta name="author" content="Codecool" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <title>Checkout</title>
-    <!-- Bootstrap components -->
-    <!-- Latest compiled and minified Jquery -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-
-    <!--Latest compiled and minified Popper -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.    public List<Product> getBy(Supplier supplier) {
+    public List<Product> getBy(Supplier supplier) {
         return data.stream().filter(t -> t.getSupplier().equals(supplier)).collect(Collectors.toList());
     }
 
