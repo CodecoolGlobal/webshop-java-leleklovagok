@@ -33,6 +33,17 @@ public class ShoppingCart extends HttpServlet {
 
         String addId = req.getParameter("add_id");
         String removeId = req.getParameter("remove_id");
+        String reqSupplierId = req.getParameter("supplierId");
+        String reqCategoryId = req.getParameter("categoryId");
+        int supplierId = 0;
+        int categoryId = 0;
+
+        if (reqSupplierId != null) {
+            supplierId = Integer.parseInt(reqSupplierId);
+        }
+        if (reqCategoryId != null) {
+            categoryId = Integer.parseInt(reqCategoryId);
+        }
 
         if (addId != null) {
             shoppingCartStore.add(shoppingCartStore.find(Integer.parseInt(addId)));
@@ -47,7 +58,12 @@ public class ShoppingCart extends HttpServlet {
         context.setVariable("quantity", shoppingCartStore.getTotalProductNr());
         context.setVariable("products", shoppingCartStore.getAll());
         context.setVariable("totalPrice", shoppingCartStore.getTotalPrice());
+        context.setVariable("currentCategory", categoryId);
+        context.setVariable("currentSupplier", supplierId);
+
         engine.process("product/cart.html", context, resp.getWriter());
+
+
 
     }
 }
