@@ -13,9 +13,9 @@
 }
 
 body {
-    background-image: url("../img/backgrounds/bg6.jpg");
+    background-image: url("../img/backgrounds/bg4.png");
     /*background-repeat: no-repeat; */
-    /*background-size: cover; */
+    /* background-size: cover; */
 }
 
 .glyphicon {
