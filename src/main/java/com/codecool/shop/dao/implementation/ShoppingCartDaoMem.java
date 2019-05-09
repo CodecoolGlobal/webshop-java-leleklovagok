@@ -67,4 +67,9 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
         return totalPrice;
     }
 
+    @Override
+    public Object getSize() {
+        return cart.size();
+    }
+
 }

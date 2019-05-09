@@ -12,4 +12,5 @@ public interface ShoppingCartDao {
     int getTotalProductNr();
     int getTotalPrice();
 
+    Object getSize();
 }
