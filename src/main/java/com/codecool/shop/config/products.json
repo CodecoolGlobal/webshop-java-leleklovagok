@@ -70,6 +70,10 @@
     "productCategory": 3,
     "supplier": 1,
     "img": "pa"
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 1,
+    "supplier": 2,
+    "img": "product_3"
   }
 ]
 
