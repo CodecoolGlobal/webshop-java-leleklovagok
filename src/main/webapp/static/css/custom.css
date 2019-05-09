@@ -3,14 +3,19 @@
     background-position: center;
 }
 
+.totalprice {
+    color: white;
+    font-size: 40px;
+}
+
 .footer {
     background: transparent;
 }
 
 body {
-    background-image: url("../img/rune1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("../img/backgrounds/bg4.png");
+    /*background-repeat: no-repeat; */
+    /* background-size: cover; */
 }
 
 .glyphicon {
@@ -80,6 +85,23 @@ body {
     padding-left: 30px;
     padding-right: 30px;
 }
+.padding-30 {
+    padding: 30px;
+}
 .margin-30-top {
     margin-top: 30px;
+}
+.margin-30-bottom {
+    margin-bottom: 30px;
+}
+.my-image {
+    zoom: 2;  //increase if you have very small images
+
+display: block;
+    margin: auto;
+
+    height: 15vh;
+
+    width: auto;
+    max-width: 100%;
 }

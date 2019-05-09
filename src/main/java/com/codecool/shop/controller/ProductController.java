@@ -7,8 +7,8 @@ import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.config.TemplateEngineUtil;
 import com.codecool.shop.dao.implementation.ShoppingCartDaoMem;
-import com.codecool.shop.model.Product;
 import com.codecool.shop.dao.implementation.SupplierDaoMem;
+import com.codecool.shop.model.Product;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -30,13 +30,25 @@ public class ProductController extends HttpServlet {
         ShoppingCartDao shoppingCartStore = ShoppingCartDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         SupplierDaoMem supplierDataStore = SupplierDaoMem.getInstance();
-
+        resp.setCharacterEncoding("UTF-8");
 //        Map params = new HashMap<>();
 //        params.put("category", productCategoryDataStore.find(1));
 //        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
 
         //NullPointerException HERE, id is null at first launch
-        String id = req.getParameter("supplierId");
+        String reqSupplierId = req.getParameter("supplierId");
+        String reqCategoryId = req.getParameter("categoryId");
+        int supplierId = 0;
+        int categoryId = 0;
+
+        if (reqSupplierId != null) {
+            supplierId = Integer.parseInt(reqSupplierId);
+        }
+        if (reqCategoryId != null) {
+            categoryId = Integer.parseInt(reqCategoryId);
+        }
+        System.out.println("categoryId");
+        System.out.println(categoryId);
 
         String addId = req.getParameter("id");
 
@@ -48,14 +60,20 @@ public class ProductController extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("suppliers", supplierDataStore.getAll());
         context.setVariable("categories", productCategoryDataStore.getAll());
-        if (id == null) {
-            context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(1)));
+
+
+        if (supplierId > 0) {
+            context.setVariable("products", productDataStore.getBy(supplierDataStore.find(supplierId)));
+            context.setVariable("supplier", supplierDataStore.find(supplierId));
+        } else if (categoryId > 0) {
+            context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(categoryId)));
         } else {
-            context.setVariable("products", productDataStore.getBy(supplierDataStore.find(Integer.parseInt(id))));
+            context.setVariable("products", productDataStore.getAll());
         }
-        //context.setVariable("category", productCategoryDataStore.find(1));
-        //context.setVariable("categories", productCategoryDataStore.getAll());
-        //context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(1)));
+
+        context.setVariable("currentCategory", categoryId);
+        context.setVariable("currentSupplier", supplierId);
+
         context.setVariable("quantity", shoppingCartStore.getSize());
         engine.process("product/index.html", context, resp.getWriter());
 
