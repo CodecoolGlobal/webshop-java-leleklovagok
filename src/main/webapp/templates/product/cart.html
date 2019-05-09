@@ -27,7 +27,7 @@
                     </div>
                 </div>
                 <div class="card-footer text-strong">
-                    Total price:
+                    Subtotal:
                     <div th:text="${prod.value} * ${prod.key.getDefaultPrice()}">
                     </div>
                 </div>
@@ -35,7 +35,10 @@
 
         </div>
     </div>
-    <div class="totalprice" th:text="Total + ' ' + Price + '    ' + ${totalPrice}"></div>
+    <div class="alert secondary-color margin-30-top" role="alert">
+        <div class="totalprice " th:text="Total + ' ' + Price + '    ' + ${totalPrice}"></div>
+    </div>
+
 </div>
 
 

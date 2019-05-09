@@ -24,6 +24,9 @@
                     <span class="badge badge-danger ml-2" th:text="${quantity}">Number</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="'/checkout-cart?categoryId=' + ${currentCategory} + '&supplierId=' + ${currentSupplier}">Checkout cart</a>
+            </li>
         </ul>
 
 

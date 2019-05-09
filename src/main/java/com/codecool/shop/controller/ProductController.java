@@ -47,8 +47,7 @@ public class ProductController extends HttpServlet {
         if (reqCategoryId != null) {
             categoryId = Integer.parseInt(reqCategoryId);
         }
-        System.out.println("categoryId");
-        System.out.println(categoryId);
+
 
         String addId = req.getParameter("id");
 
@@ -77,7 +76,7 @@ public class ProductController extends HttpServlet {
         context.setVariable("currentCategory", categoryId);
         context.setVariable("currentSupplier", supplierId);
 
-        context.setVariable("quantity", shoppingCartStore.getSize());
+        context.setVariable("quantity", shoppingCartStore.getTotalProductNr());
         engine.process("product/index.html", context, resp.getWriter());
 
     }
