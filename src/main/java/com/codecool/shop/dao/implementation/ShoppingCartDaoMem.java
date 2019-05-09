@@ -4,6 +4,7 @@ import com.codecool.shop.dao.ShoppingCartDao;
 import com.codecool.shop.model.Product;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ShoppingCartDaoMem implements ShoppingCartDao {
     private HashMap<Product, Integer> cart = new HashMap<>();
@@ -23,30 +24,47 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
     @Override
     public void add(Product product) {
         if (cart.containsKey(product)) {
-            cart.get(product)++;
+            cart.put(product, cart.get(product) + 1);
+        } else {
+            cart.put(product, 1);
         }
-        cart.put(product, 1);
     }
 
     @Override
     public Product find(int id) {
-        return cart.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
+        return cart.keySet().stream().filter(product -> product.getId() == id).findFirst().orElse(null);
     }
 
 
     @Override
     public void remove(Product product) {
-        cart.remove(product);
+        int quantity = cart.get(product);
+        if (quantity > 1) {
+            cart.put(product, quantity - 1);
+        } else {
+            cart.remove(product);
+        }
     }
+
 
     @Override
     public HashMap<Product, Integer> getAll() {
         return cart;
     }
 
+
     @Override
-    public int getSize() {
-        return cart.size();
+    public int getTotalProductNr() {
+        return cart.keySet().stream().mapToInt(key -> cart.get(key)).reduce(0, (x, y) -> x + y);
+    }
+
+    @Override
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (Map.Entry item : cart.entrySet()) {
+            totalPrice += ((Product) item.getKey()).getDefaultPrice() * (int) item.getValue();
+        }
+        return totalPrice;
     }
 
 }

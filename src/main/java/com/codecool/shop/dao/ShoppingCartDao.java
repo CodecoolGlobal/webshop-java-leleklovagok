@@ -9,6 +9,7 @@ public interface ShoppingCartDao {
     Product find(int id);
     void remove(Product product);
     HashMap<Product, Integer> getAll();
-    int getSize();
+    int getTotalProductNr();
+    int getTotalPrice();
 
 }
