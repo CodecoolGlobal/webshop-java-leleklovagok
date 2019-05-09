@@ -81,3 +81,27 @@ body {
 {
     margin: 0 0 11px;
 }
+.padding-30-sides {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+.padding-30 {
+    padding: 30px;
+}
+.margin-30-top {
+    margin-top: 30px;
+}
+.margin-30-bottom {
+    margin-bottom: 30px;
+}
+.my-image {
+    zoom: 2;  //increase if you have very small images
+
+display: block;
+    margin: auto;
+
+    height: 15vh;
+
+    width: auto;
+    max-width: 100%;
+}

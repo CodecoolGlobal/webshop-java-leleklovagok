@@ -8,6 +8,9 @@
     <title>Codecool Shop</title>
 
     <!-- Bootstrap components -->
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
     <!-- Latest compiled and minified Jquery -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -25,7 +28,17 @@
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
 
+    <!-- Material Design Bootstrap -->
+    <link href="/static/css/mdb.min.css" rel="stylesheet">
+    <script src="/static/js/mdb.js" defer></script>
+    <script src="/static/js/popper.min.js" defer></script>
+
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <script src="/static/js/popper.min.js" defer></script>
+    <script src="/static/js/custom.js" defer></script>
+
+
+
 </head>
 
 <body>
@@ -35,28 +48,318 @@
     <a href="/shopping-cart"><div align="right" th:text="Cart + '      ' + ${quantity}"></div></a>
 </div>
 
-<div class="container">
-    <div class="card">
-        <strong th:text="${category.name}">Category Title</strong>
-    </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card padding-30-sides margin-30-bottom secondary-color white-text">
+                        <select id="categorySelector" class="mdb-select md-form colorful-select dropdown-primary margin-30-sides dark white-text dropdown-secondary">
+                           <!-- <option value="" disabled th:selected="${currentCategory==0}">Select product category</option> -->
+                            <option value="" disabled selected>Válassz csodás termékkategóriáink közül</option>
+                            <option th:each="category : ${categories}" th:value="${category.id}" th:selected="${category.id==currentCategory}" th:text="${category.name}">
+                            </option>
 
-    <div id="products" class="row">
-        <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
-            <div class="card">
-                <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
-                <div class="card-header">
-                    <h4 class="card-title" th:text="${prod.name}">Product name</h4>
-                    <p class="card-text" th:text="${prod.description}">Product description... </p>
-                </div>
-                <div class="card-body">
-                    <div class="card-text">
-                        <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
-                    </div>
-                    <div class="card-text">
-                        <a class="btn btn-success" th:href="@{/(id=${prod.id})}">Add to cart</a>
+                        </select>
                     </div>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card padding-30-sides margin-30-bottom secondary-color white-text">
+                        <select id="supplierSelector" class="mdb-select md-form colorful-select dropdown-primary margin-30-sides dark white-text dropdown-secondary">
+                            <option value="" disabled selected>Válassz lelki útitársat</option>
+                            <option th:each="supplier: ${suppliers}" th:value="${supplier.id}" th:selected="${supplier.id==currentSupplier}" th:text="${supplier.name}">
+                            </option>
+
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row text-center" th:if="${currentSupplier > 0}">
+                <!-- Lelki útitárs -->
+                <div class="col-12">
+                    <div class="card padding-30 margin-30-bottom  ">
+                        <div class="avatar mx-auto col-4">
+                            <img th:attr="src='/static/img/' + ${supplier.img} + '.jpg'" class="rounded-circle z-depth-1 img-fluid"
+                                 alt="Sample avatar">
+                        </div>
+                        <h5 class="font-weight-bold mt-4 mb-3" th:text="${supplier.name}">Supplier name</h5>
+                        <p class="grey-text" th:text="${supplier.description}">Supplier description</p>
+                        <ul class="list-unstyled mb-0">
+                            <!-- Facebook -->
+                            <a class="p-2 fa-lg fb-ic">
+                                <i class="fab fa-facebook-f blue-text"> </i>
+                            </a>
+                            <!-- Twitter -->
+                            <a class="p-2 fa-lg tw-ic">
+                                <i class="fab fa-twitter blue-text"> </i>
+                            </a>
+                            <!-- Instagram -->
+                            <a class="p-2 fa-lg ins-ic">
+                                <i class="fab fa-instagram blue-text"> </i>
+                            </a>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Lelki útitárs -->
+            </div>
+
+
+
+
+        </div>
+
+
+
+        <div class="col-9">
+            <div class="row">
+
+                <div class="col col-sm-12 col-md-6 col-lg-3 margin-30-top" th:each="prod,iterStat : ${products}">
+
+
+                <!-- Card Dark -->
+                <div class="card">
+
+                    <!-- Card image -->
+                    <div class="view overlay ">
+                        <img class="card-img-top my-image" th:attr="src='/static/img/' + ${prod.img} + '.jpg'" alt="Card image cap">
+                        <a>
+                            <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+
+                    <!-- Card content -->
+                    <div class="card-body secondary-color white-text rounded-bottom">
+
+                        <!-- Social shares button -->
+                        <a class="activator waves-effect mr-4"><i class="fas fa-share-alt white-text"></i></a>
+                        <!-- Title -->
+                        <h4 class="card-title" th:utext="${prod.name}">Card title</h4>
+                        <hr class="hr-light">
+                        <!-- Text -->
+                        <p class="card-text white-text mb-4" th:text="${prod.description}"> Description </p>
+
+                        <h5 class="card-title" th:text="${prod.getPrice()}">Price</h5>
+                        <div class="card-text">
+                            <a class="btn btn-success" th:href="@{/(id=${prod.id})}"><i class="fas fa-cart-plus white-text fa-lg"></i></a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll-1"><i class="fas fa-comments white-text fa-lg"></i></button>
+                        </div>
+
+
+                        <!-- Modal for comments -->
+
+                        <!-- Modal: modalPoll -->
+                        <div class="modal fade right" id="modalPoll-1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                             aria-hidden="true" data-backdrop="false">
+                            <div class="modal-dialog modal-full-height modal-right modal-notify modal-info" role="document">
+                                <div class="modal-content">
+                                    <!--Header-->
+                                    <div class="modal-header secondary-color">
+                                        <p class="heading lead ">Kommentek
+                                        </p>
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true" class="white-text">×</span>
+                                        </button>
+                                    </div>
+
+                                    <!--Body-->
+                                    <div class="modal-body">
+
+
+                                        <!-- Section: Social newsfeed v.1 -->
+                                        <section class="my-5">
+
+                                            <!-- Grid row -->
+                                            <div class="row">
+
+                                                <!-- Grid column -->
+                                                <div class="col-md-12">
+
+                                                    <!-- Newsfeed -->
+                                                    <div class="mdb-feed">
+
+                                                        <!-- News1 -->
+                                                        <div class="news">
+                                                            <!-- Label -->
+                                                            <div class="label">
+                                                                <img src="/static/img/profiles/bp.jpg" class="rounded-circle z-depth-1-half">
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                            <div class="excerpt">
+                                                                <!-- Brief -->
+                                                                <div class="brief">
+                                                                    <a class="name">Péter Borsos</a> posted on his page
+                                                                    <div class="date">2 hours ago </div>
+                                                                </div>
+                                                                <!-- Added text -->
+                                                                <div class="added-text">EZ NAGYON MŰKÖDIK!!!</div>
+                                                                <!-- Feed footer -->
+                                                                <div class="feed-footer">
+                                                                    <a class="like">
+                                                                        <i class="fas fa-heart text-secondary"></i>
+                                                                        <span>623456 likes</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                        </div>
+                                                        <!-- News 1 - end -->
+
+                                                        <!-- News2 -->
+                                                        <div class="news">
+                                                            <!-- Label -->
+                                                            <div class="label">
+                                                                <img src="/static/img/profiles/sza.jpg" class="rounded-circle z-depth-1-half">
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                            <div class="excerpt">
+                                                                <!-- Brief -->
+                                                                <div class="brief">
+                                                                    <a class="name">Ádám Szűcs</a> posted on his page
+                                                                    <div class="date">6 hours ago </div>
+                                                                </div>
+                                                                <!-- Added text -->
+                                                                <div class="added-text">
+                                                                    Amióta használom ezeket a termékeket én is teljesen másképp látom a világot.
+                                                                    Az SI heteken is szárnyalok, 2 perc alatt elkészítem a házi feladatokat.
+                                                                </div>
+                                                                <!-- Feed footer -->
+                                                                <div class="feed-footer">
+                                                                    <a class="like">
+                                                                        <i class="fas fa-heart text-secondary"></i>
+                                                                        <span>629768654 likes</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                        </div>
+                                                        <!-- News 2 - end -->
+
+                                                        <!-- News3 -->
+                                                        <div class="news">
+                                                            <!-- Label -->
+                                                            <div class="label">
+                                                                <img src="/static/img/profiles/pt.png" class="rounded-circle z-depth-1-half">
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                            <div class="excerpt">
+                                                                <!-- Brief -->
+                                                                <div class="brief">
+                                                                    <a class="name">Tamás Pataky</a> posted on his page
+                                                                    <div class="date">2 days ago </div>
+                                                                </div>
+                                                                <!-- Added text -->
+                                                                <div class="added-text">
+                                                                    Az első web PA előtt még nem ismertem ezeket a csodálatos lehetőségeket. Nem is mentem át a vizsgán.
+                                                                    Azóta használom őket és teljesen megváltozott az életem! MINDEN CSODÁS AZÓTA ÉS A PA IS GOND NÉLKÜL SIKERÜLT!!!
+                                                                </div>
+                                                                <!-- Feed footer -->
+                                                                <div class="feed-footer">
+                                                                    <a class="like">
+                                                                        <i class="fas fa-heart text-secondary"></i>
+                                                                        <span>846367546 likes</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                        </div>
+                                                        <!-- News 3 - end -->
+
+                                                        <!-- News4 -->
+                                                        <div class="news">
+                                                            <!-- Label -->
+                                                            <div class="label">
+                                                                <img src="/static/img/profiles/szn.jpg" class="rounded-circle z-depth-1-half">
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                            <div class="excerpt">
+                                                                <!-- Brief -->
+                                                                <div class="brief">
+                                                                    <a class="name">Norbert Szabó</a> posted on his page
+                                                                    <div class="date">2 days ago </div>
+                                                                </div>
+                                                                <!-- Added text -->
+                                                                <div class="added-text">
+                                                                    Korábban nagyon féltem a PA-tól, de amióta látó Marika megmutatta a jövőt, azóta nincs bennem félsz.
+                                                                    Tudom mindenképpen átmegyek, akkor is ha nem gyakorlok...
+                                                                </div>
+                                                                <!-- Feed footer -->
+                                                                <div class="feed-footer">
+                                                                    <a class="like">
+                                                                        <i class="fas fa-heart text-secondary"></i>
+                                                                        <span>75437433 likes</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                        </div>
+                                                        <!-- News 4 - end -->
+
+                                                        <!-- News5 -->
+                                                        <div class="news">
+                                                            <!-- Label -->
+                                                            <div class="label">
+                                                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" class="rounded-circle z-depth-1-half">
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                            <div class="excerpt">
+                                                                <!-- Brief -->
+                                                                <div class="brief">
+                                                                    <a class="name">Jonatán Úri</a> posted on his page
+                                                                    <div class="date">4 days ago </div>
+                                                                </div>
+                                                                <!-- Added text -->
+                                                                <div class="added-text">
+                                                                    Szeretném én is megismerni ezeket a fantasztikus termékeket, de sajnos egy lábsérülésem akadályoz a mozgásban.
+                                                                    Használhatnám így is őket?
+                                                                <!-- Feed footer -->
+                                                                <div class="feed-footer">
+                                                                    <a class="like">
+                                                                        <i class="fas fa-heart"></i>
+                                                                        <span>75437433 likes</span>
+                                                                    </a>
+                                                                </div>
+                                                            </div>
+                                                            <!-- Excerpt -->
+                                                        </div>
+                                                        <!-- News 4 - end -->
+
+                                                    </div>
+                                                    <!-- Newsfeed -->
+                                                </div>
+                                                <!-- Grid column -->
+                                            </div>
+                                            <!-- Grid row -->
+
+                                        </section>
+                                        <!-- Section: Social newsfeed v.1 -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Modal: modalPoll -->
+
+
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+                <!-- Card Dark -->
+
+            </div>
+        </div>
+
+
+
+
         </div>
     </div>
 

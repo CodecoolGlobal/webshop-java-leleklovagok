@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Bűvös pálca1",
+    "defaultPrice": 8000,
+    "currencyString": "EUR",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 1,
+    "supplier": 1,
+    "img": "palca1"
+  },
+  {
+    "name": "Bűvös pálca2",
+    "defaultPrice": 5000,
+    "currencyString": "EUR",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 1,
+    "supplier": 2,
+    "img": "sziv angyal"
+  },
+  {
+    "name": "Bűvös pálca3",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 3,
+    "supplier": 1,
+    "img": "inga"
+  },
+  {
+    "name": "Látó szemüveg",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 1,
+    "supplier": 1,
+    "img": "product_3"
+  },
+  {
+    "name": "Csakra masszázs",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 4,
+    "supplier": 4,
+    "img": "chakra"
+  },
+  {
+    "name": "Aura masszázs",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 4,
+    "supplier": 4,
+    "img": "aura"
+  },
+  {
+    "name": "Mentor hipnotizálás",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "A beavatkozás után a mentor mindent elhisz és végrehajt bármit is mondasz neki...",
+    "productCategory": 5,
+    "supplier": 3,
+    "img": "hipnotized"
+  },
+  {
+    "name": "PA feladat meglátása",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "Marika előre meglátja a PA feladatokat, abba is hagyhatod a készülést.",
+    "productCategory": 5,
+    "supplier": 1,
+    "img": "pa"
+  }
+]
+

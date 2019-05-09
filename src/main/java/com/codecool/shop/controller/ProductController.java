@@ -28,10 +28,26 @@ public class ProductController extends HttpServlet {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ShoppingCartDao shoppingCartStore = ShoppingCartDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-
+        SupplierDaoMem supplierDataStore = SupplierDaoMem.getInstance();
+        resp.setCharacterEncoding("UTF-8");
 //        Map params = new HashMap<>();
 //        params.put("category", productCategoryDataStore.find(1));
 //        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
+
+        //NullPointerException HERE, id is null at first launch
+        String reqSupplierId = req.getParameter("supplierId");
+        String reqCategoryId = req.getParameter("categoryId");
+        int supplierId = 0;
+        int categoryId = 0;
+
+        if (reqSupplierId != null) {
+            supplierId = Integer.parseInt(reqSupplierId);
+        }
+        if (reqCategoryId != null) {
+            categoryId = Integer.parseInt(reqCategoryId);
+        }
+        System.out.println("categoryId");
+        System.out.println(categoryId);
 
         String addId = req.getParameter("id");
 
@@ -41,10 +57,23 @@ public class ProductController extends HttpServlet {
 
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
+        context.setVariable("suppliers", supplierDataStore.getAll());
+        context.setVariable("categories", productCategoryDataStore.getAll());
 
-        context.setVariable("category", productCategoryDataStore.find(1));
-        context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(1)));
-        context.setVariable("quantity", shoppingCartStore.getTotalProductNr());
+
+        if (supplierId > 0) {
+            context.setVariable("products", productDataStore.getBy(supplierDataStore.find(supplierId)));
+            context.setVariable("supplier", supplierDataStore.find(supplierId));
+        } else if (categoryId > 0) {
+            context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(categoryId)));
+        } else {
+            context.setVariable("products", productDataStore.getAll());
+        }
+
+        context.setVariable("currentCategory", categoryId);
+        context.setVariable("currentSupplier", supplierId);
+
+        context.setVariable("quantity", shoppingCartStore.getSize());
         engine.process("product/index.html", context, resp.getWriter());
 
     }
