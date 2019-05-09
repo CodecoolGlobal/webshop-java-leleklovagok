@@ -13,9 +13,9 @@
 }
 
 body {
-    background-image: url("../img/rune1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-image: url("../img/backgrounds/bg6.jpg");
+    /*background-repeat: no-repeat; */
+    /*background-size: cover; */
 }
 
 .glyphicon {
