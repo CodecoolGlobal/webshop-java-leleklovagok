@@ -3,11 +3,11 @@ package com.codecool.shop.dao.implementation;
 import com.codecool.shop.dao.ShoppingCartDao;
 import com.codecool.shop.model.Product;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ShoppingCartDaoMem implements ShoppingCartDao {
-    private List<Product> cart = new ArrayList<>();
+    private HashMap<Product, Integer> cart = new HashMap<>();
     private static ShoppingCartDaoMem instance = null;
 
     private ShoppingCartDaoMem() {
@@ -23,27 +23,52 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
 
     @Override
     public void add(Product product) {
-        cart.add(product);
+        if (cart.containsKey(product)) {
+            cart.put(product, cart.get(product) + 1);
+        } else {
+            cart.put(product, 1);
+        }
     }
 
     @Override
     public Product find(int id) {
-        return cart.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
+        return cart.keySet().stream().filter(product -> product.getId() == id).findFirst().orElse(null);
     }
 
 
     @Override
-    public void remove(int id) {
-        cart.remove(find(id));
+    public void remove(Product product) {
+        int quantity = cart.get(product);
+        if (quantity > 1) {
+            cart.put(product, quantity - 1);
+        } else {
+            cart.remove(product);
+        }
     }
 
+
     @Override
-    public List<Product> getAll() {
+    public HashMap<Product, Integer> getAll() {
         return cart;
     }
 
+
     @Override
-    public int getSize() {
+    public int getTotalProductNr() {
+        return cart.keySet().stream().mapToInt(key -> cart.get(key)).reduce(0, (x, y) -> x + y);
+    }
+
+    @Override
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (Map.Entry item : cart.entrySet()) {
+            totalPrice += ((Product) item.getKey()).getDefaultPrice() * (int) item.getValue();
+        }
+        return totalPrice;
+    }
+
+    @Override
+    public Object getSize() {
         return cart.size();
     }
 
