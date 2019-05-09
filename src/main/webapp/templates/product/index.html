@@ -51,7 +51,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-4">
+        <div class="col-3">
             <div class="row">
                 <div class="col-12">
                     <div class="card padding-30-sides margin-30-bottom secondary-color white-text">
@@ -115,10 +115,10 @@
 
 
 
-        <div class="col-8">
+        <div class="col-9">
             <div class="row">
 
-                <div class="col col-sm-12 col-md-6 col-lg-4 margin-30-top" th:each="prod,iterStat : ${products}">
+                <div class="col col-sm-12 col-md-6 col-lg-3 margin-30-top" th:each="prod,iterStat : ${products}">
 
 
                 <!-- Card Dark -->
@@ -145,8 +145,8 @@
 
                         <h5 class="card-title" th:text="${prod.getPrice()}">Price</h5>
                         <div class="card-text">
-                            <a class="btn btn-success" th:href="@{/(id=${prod.id})}">Add to cart</a>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll-1">Kommentek</button>
+                            <a class="btn btn-success" th:href="@{/(id=${prod.id})}"><i class="fas fa-cart-plus white-text fa-lg"></i></a>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalPoll-1"><i class="fas fa-comments white-text fa-lg"></i></button>
                         </div>
 
 
@@ -187,7 +187,7 @@
                                                         <div class="news">
                                                             <!-- Label -->
                                                             <div class="label">
-                                                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" class="rounded-circle z-depth-1-half">
+                                                                <img src="/static/img/profiles/bp.jpg" class="rounded-circle z-depth-1-half">
                                                             </div>
                                                             <!-- Excerpt -->
                                                             <div class="excerpt">
@@ -214,7 +214,7 @@
                                                         <div class="news">
                                                             <!-- Label -->
                                                             <div class="label">
-                                                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" class="rounded-circle z-depth-1-half">
+                                                                <img src="/static/img/profiles/sza.jpg" class="rounded-circle z-depth-1-half">
                                                             </div>
                                                             <!-- Excerpt -->
                                                             <div class="excerpt">
@@ -274,7 +274,7 @@
                                                         <div class="news">
                                                             <!-- Label -->
                                                             <div class="label">
-                                                                <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(18)-mini.jpg" class="rounded-circle z-depth-1-half">
+                                                                <img src="/static/img/profiles/szn.jpg" class="rounded-circle z-depth-1-half">
                                                             </div>
                                                             <!-- Excerpt -->
                                                             <div class="excerpt">
