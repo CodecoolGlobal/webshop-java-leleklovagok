@@ -12,7 +12,7 @@
     "name": "Csakra masszázs",
     "defaultPrice": 4000,
     "currencyString": "EUR",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "description": "100% legális. \n100% masszázs.",
     "productCategory": 2,
     "supplier": 2,
     "img": "chakra"
@@ -21,7 +21,7 @@
     "name": "Aura masszázs",
     "defaultPrice": 4000,
     "currencyString": "EUR",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "description": "Kristályos aura masszázs, aura adjusztálással.",
     "productCategory": 2,
     "supplier": 1,
     "img": "aura"
