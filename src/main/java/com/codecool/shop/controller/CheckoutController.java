@@ -1,4 +1,4 @@
-/*package com.codecool.shop.controller;
+package com.codecool.shop.controller;
 
 import com.codecool.shop.config.TemplateEngineUtil;
 
@@ -11,8 +11,8 @@ import java.io.IOException;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
-@WebServlet(urlPatterns = {"/checkout"})
-public class Checkout extends HttpServlet {
+@WebServlet(urlPatterns = {"/checkout-cart"})
+public class CheckoutController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -21,4 +21,3 @@ public class Checkout extends HttpServlet {
         engine.process("product/checkout.html", context, response.getWriter());
     }
 }
-*/
