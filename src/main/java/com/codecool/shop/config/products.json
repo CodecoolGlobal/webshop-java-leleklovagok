@@ -1,65 +1,65 @@
 [
   {
-    "name": "Bűvös pálca1",
-    "defaultPrice": 8000,
-    "currencyString": "EUR",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": 1,
-    "supplier": 1,
-    "img": "palca1"
-  },
-  {
-    "name": "Bűvös pálca2",
-    "defaultPrice": 5000,
-    "currencyString": "EUR",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": 1,
-    "supplier": 2,
-    "img": "sziv angyal"
-  },
-  {
-    "name": "Bűvös pálca3",
+    "name": "Tisztánlátó szemüveg",
     "defaultPrice": 4000,
     "currencyString": "EUR",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": 3,
-    "supplier": 1,
-    "img": "inga"
-  },
-  {
-    "name": "Látó szemüveg",
-    "defaultPrice": 4000,
-    "currencyString": "EUR",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "description": "A szemüveg segítségével tisztán láthatjuk környezetünket a minket körülvevő démonokat illetve az energiavámpírokat.",
     "productCategory": 1,
     "supplier": 1,
-    "img": "product_3"
+    "img": "lato"
   },
   {
     "name": "Csakra masszázs",
     "defaultPrice": 4000,
     "currencyString": "EUR",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": 4,
-    "supplier": 4,
+    "description": "100% legális. \n100% masszázs.",
+    "productCategory": 2,
+    "supplier": 2,
     "img": "chakra"
   },
   {
     "name": "Aura masszázs",
     "defaultPrice": 4000,
     "currencyString": "EUR",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "productCategory": 4,
-    "supplier": 4,
+    "description": "Kristályos aura masszázs, aura adjusztálással.",
+    "productCategory": 2,
+    "supplier": 1,
     "img": "aura"
+  },
+  {
+    "name": "Vízenergetizáló pálca",
+    "defaultPrice": 8000,
+    "currencyString": "EUR",
+    "description": "A Vízenergetizáló mágneses pálca az ivóvizet élő vízhez, forrásvízhez hasonlóvá alakítja.",
+    "productCategory": 1,
+    "supplier": 2,
+    "img": "palca1"
+  },
+  {
+    "name": "Csakra tisztítás csakra görénnyel",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "Amennyiben csakrád túl szenyezett vagy dugult, ajánljuk csakragörényünket tisztítására.",
+    "productCategory": 2,
+    "supplier": 2,
+    "img": "chakra-cleaning"
+  },
+  {
+    "name": "A szakrális Nő ébresztése",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "Férfiaknak is! Ez a kurzus nem a látható világnak szól, hanem a láthatatlannak, a Lelkednek! \nÉld meg azt a nőd, aki a Lelked okán vagy!",
+    "productCategory": 2,
+    "supplier": 1,
+    "img": "soma"
   },
   {
     "name": "Mentor hipnotizálás",
     "defaultPrice": 4000,
     "currencyString": "EUR",
     "description": "A beavatkozás után a mentor mindent elhisz és végrehajt bármit is mondasz neki...",
-    "productCategory": 5,
-    "supplier": 3,
+    "productCategory": 3,
+    "supplier": 2,
     "img": "hipnotized"
   },
   {
@@ -67,9 +67,13 @@
     "defaultPrice": 4000,
     "currencyString": "EUR",
     "description": "Marika előre meglátja a PA feladatokat, abba is hagyhatod a készülést.",
-    "productCategory": 5,
+    "productCategory": 3,
     "supplier": 1,
     "img": "pa"
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
+    "productCategory": 1,
+    "supplier": 2,
+    "img": "product_3"
   }
 ]
 

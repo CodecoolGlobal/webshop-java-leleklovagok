@@ -10,18 +10,13 @@
     "name": "Lala a gyógyító",
     "description": "Lala kifinomult módszereivel meglátja és meggyógyítja minden testi és lelki bajod, finomhangolja a tested. ",
     "img": "butcher"
+    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display."
   },
+
   {
-    "id": "3",
-    "name": "Cirmike a táltos macska",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "img": "cat"
-  },
-  {
-    "id": "4",
-    "name": "Erzsike a lélekmasszőr",
-    "description": "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.",
-    "img": "erzsike"
+    "id": "2",
+    "name": "Angyalszem",
+    "description": "jfvfmvfv"
   }
 ]
 
