@@ -30,7 +30,7 @@ public class ProductController extends HttpServlet {
         ShoppingCartDao shoppingCartStore = ShoppingCartDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         SupplierDaoMem supplierDataStore = SupplierDaoMem.getInstance();
-
+        resp.setCharacterEncoding("UTF-8");
 //        Map params = new HashMap<>();
 //        params.put("category", productCategoryDataStore.find(1));
 //        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
@@ -64,6 +64,7 @@ public class ProductController extends HttpServlet {
 
         if (supplierId > 0) {
             context.setVariable("products", productDataStore.getBy(supplierDataStore.find(supplierId)));
+            context.setVariable("supplier", supplierDataStore.find(supplierId));
         } else if (categoryId > 0) {
             context.setVariable("products", productDataStore.getBy(productCategoryDataStore.find(categoryId)));
         } else {
