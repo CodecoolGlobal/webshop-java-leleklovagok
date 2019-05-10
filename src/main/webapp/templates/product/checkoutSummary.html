@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div th:replace="head.html :: head"></div>
+
+<body>
+<div th:replace="header.html :: header"></div>
+    <div class="container-fluid margin-90-top">
+        <div class="row justify-content-md-center">
+            <div class="col-6">
+                <div class="card padding-30-sides margin-30-bottom secondary-color white-text padding-30">
+                    <h4>Kérjük ellenőrizd le az adataidat:</h4>
+                    <div class="jackInTheBox">
+                        <h6 th:text="'Név: ' + ${name}"></h6>
+                        <h6 th:text="'Email: ' + ${email}"></h6>
+                        <h6 th:text="'Telefon: ' + ${phone}"></h6>
+                        <h6 th:text="'Számlázási cím: ' + ${billing}"></h6>
+                        <h6 th:text="'Szállítási cím: ' + ${shipping}"></h6>
+                    </div>
+
+                    <button type="submit" class="btn peach-gradient">Vásárlás</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
