@@ -61,8 +61,8 @@ public class ShoppingCartDaoMem implements ShoppingCartDao {
     @Override
     public int getTotalPrice() {
         int totalPrice = 0;
-        for (Map.Entry item : cart.entrySet()) {
-            totalPrice += ((Product) item.getKey()).getDefaultPrice() * (int) item.getValue();
+        for (Map.Entry cartItem : cart.entrySet()) {
+            totalPrice += ((Product) cartItem.getKey()).getDefaultPrice() * (int) cartItem.getValue();
         }
         return totalPrice;
     }
