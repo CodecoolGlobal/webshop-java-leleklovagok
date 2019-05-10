@@ -17,7 +17,46 @@
                         <h6 th:text="'Szállítási cím: ' + ${shipping}"></h6>
                     </div>
 
-                    <button type="submit" class="btn peach-gradient">Vásárlás</button>
+
+                    <!-- Button trigger modal-->
+                    <button type="button" class="btn btn peach-gradient" data-toggle="modal" data-target="#modalSocial">Vásárlás</button>
+
+                    <!--Modal: modalSocial-->
+                    <div class="modal fade" id="modalSocial" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                         aria-hidden="true">
+                        <div class="modal-dialog cascading-modal" role="document">
+
+                            <!--Content-->
+                            <div class="modal-content">
+
+                                <!--Header-->
+                                <div class="modal-header secondary-color white-text">
+                                    <h4 class="title"><i class="fas fa-users"></i> Köszönjük a vásárlást!</h4>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                            aria-hidden="true">&times;</span></button>
+                                </div>
+
+                                <!--Body-->
+                                <div class="modal-body mb-0 text-center">
+                                    <a  th:href="'/'">
+                                        <button type="button" class="btn peach-gradient btn-lg btn-block">Vissza boltba</button>
+                                    </a>
+
+                                </div>
+
+                            </div>
+                            <!--/.Content-->
+
+                        </div>
+                    </div>
+                    <!--Modal: modalSocial-->
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>
