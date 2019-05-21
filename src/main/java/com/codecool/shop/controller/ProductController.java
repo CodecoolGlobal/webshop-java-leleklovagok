@@ -31,11 +31,7 @@ public class ProductController extends HttpServlet {
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         SupplierDaoMem supplierDataStore = SupplierDaoMem.getInstance();
         resp.setCharacterEncoding("UTF-8");
-//        Map params = new HashMap<>();
-//        params.put("category", productCategoryDataStore.find(1));
-//        params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
 
-        //NullPointerException HERE, id is null at first launch
         String reqSupplierId = req.getParameter("supplierId");
         String reqCategoryId = req.getParameter("categoryId");
         int supplierId = 0;
