@@ -3,11 +3,11 @@ package com.codecool.shop.controller;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.ShoppingCartDao;
-import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
+import com.codecool.shop.dao.implementation.SupplierDaoMemJdbc;
+import com.codecool.shop.dao.implementation.ProductCategoryDaoMemJdbc;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.config.TemplateEngineUtil;
 import com.codecool.shop.dao.implementation.ShoppingCartDaoMem;
-import com.codecool.shop.dao.implementation.SupplierDaoMem;
 import com.codecool.shop.model.Product;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
@@ -28,8 +28,8 @@ public class ProductController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ShoppingCartDao shoppingCartStore = ShoppingCartDaoMem.getInstance();
-        ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
-        SupplierDaoMem supplierDataStore = SupplierDaoMem.getInstance();
+        ProductCategoryDaoMemJdbc productCategoryDataStore = new ProductCategoryDaoMemJdbc();
+        SupplierDaoMemJdbc supplierDataStore = new SupplierDaoMemJdbc();
         resp.setCharacterEncoding("UTF-8");
 //        Map params = new HashMap<>();
 //        params.put("category", productCategoryDataStore.find(1));

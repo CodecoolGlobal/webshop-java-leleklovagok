@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Supplier extends BaseModel {
     private List<Product> products;
-    private String img;
+    public String img;
 
     public Supplier(String name, String description, String img) {
         super(name, description);
