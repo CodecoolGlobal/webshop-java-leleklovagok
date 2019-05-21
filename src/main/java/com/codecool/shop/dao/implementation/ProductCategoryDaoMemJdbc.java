@@ -1,45 +1,57 @@
 package com.codecool.shop.dao.implementation;
 
-import com.codecool.shop.dao.SupplierDao;
-import com.codecool.shop.model.Supplier;
 
+import com.codecool.shop.dao.ProductCategoryDao;
+import com.codecool.shop.model.ProductCategory;
 
 import java.sql.*; // Database addition
 import java.util.ArrayList;
 import java.util.List;
 
-public class SupplierDaoMemJdbc implements SupplierDao {
+public class ProductCategoryDaoMemJdbc implements ProductCategoryDao {
     // Database addition:
     private static final String DATABASE = "jdbc:postgresql://173.212.197.253:54321/leleklovagok";
     private static final String DB_USER = "postgres";
     private static final String DB_PASSWORD = "b1735e9e68e371193d5aa0e0b906da60";
 
-    private List<Supplier> data = new ArrayList<>();
-    private static SupplierDaoMemJdbc instance = null;
 
-    // Updated methods to db-------------------------
-    @Override
-    public void add(Supplier supplier) {
-        String query = "INSERT INTO suppliers (name, description, img) " +
-                "VALUES ('" + supplier.name + "', '" + supplier.description+ "', '" + supplier.img + "');";
-        executeQuery(query);
+    private List<ProductCategory> data = new ArrayList<>();
+    private static ProductCategoryDaoMemJdbc instance = null;
+
+    /* A private Constructor prevents any other class from instantiating.
+     */
+    public ProductCategoryDaoMemJdbc() {
     }
 
-    @Override
-    public List<Supplier> getAll() {
-        String query = "SELECT * FROM suppliers;";
 
-        List<Supplier> resultList = new ArrayList<>();
+    public static ProductCategoryDaoMemJdbc getInstance() {
+        if (instance == null) {
+            instance = new ProductCategoryDaoMemJdbc();
+        }
+        return instance;
+    }
+    // Updated methods to db-------------------------
+    @Override
+    public void add(ProductCategory productCategory) {
+        String query = "INSERT INTO suppliers (name, description, department) " +
+                "VALUES ('" + productCategory.name + "', '" + productCategory.description+ "', '" + productCategory.department + "');";
+        executeQuery(query);
+    }
+    @Override
+    public List<ProductCategory> getAll() {
+        String query = "SELECT * FROM product_categories;";
+
+        List<ProductCategory> resultList = new ArrayList<>();
 
         try (Connection connection = getConnection();
              Statement statement =connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query);
         ){
             while (resultSet.next()){
-                Supplier record = new Supplier(
+                ProductCategory record = new ProductCategory(
                         resultSet.getString("name"),
-                        resultSet.getString("description"),
-                        resultSet.getString("img")
+                        resultSet.getString("department"),
+                        resultSet.getString("description")
                 );
                 resultList.add(record);
             }
@@ -54,8 +66,9 @@ public class SupplierDaoMemJdbc implements SupplierDao {
     }
 
     // Not updated methods--------------------------------
+
     @Override
-    public Supplier find(int id) {
+    public ProductCategory find(int id) {
         return data.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
     }
 
@@ -63,6 +76,8 @@ public class SupplierDaoMemJdbc implements SupplierDao {
     public void remove(int id) {
         data.remove(find(id));
     }
+
+
 
 
     // Database general: -----------------------------------------------------
