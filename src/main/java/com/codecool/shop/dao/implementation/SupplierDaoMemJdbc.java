@@ -8,14 +8,20 @@ import java.sql.*; // Database addition
 import java.util.ArrayList;
 import java.util.List;
 
-public class SupplierDaoMemJdbc implements SupplierDao {
-    // Database addition:
-    private static final String DATABASE = "jdbc:postgresql://173.212.197.253:54321/leleklovagok";
-    private static final String DB_USER = "postgres";
-    private static final String DB_PASSWORD = "b1735e9e68e371193d5aa0e0b906da60";
+public class SupplierDaoMemJdbc extends DatabaseDao implements SupplierDao {
 
     private List<Supplier> data = new ArrayList<>();
     private static SupplierDaoMemJdbc instance = null;
+
+    public SupplierDaoMemJdbc() {
+    }
+
+    public static SupplierDaoMemJdbc getInstance() {
+        if (instance == null) {
+            instance = new SupplierDaoMemJdbc();
+        }
+        return instance;
+    }
 
     // Updated methods to db-------------------------
     @Override
@@ -64,23 +70,4 @@ public class SupplierDaoMemJdbc implements SupplierDao {
         data.remove(find(id));
     }
 
-
-    // Database general: -----------------------------------------------------
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(
-                DATABASE,
-                DB_USER,
-                DB_PASSWORD);
-    }
-
-    private void executeQuery(String query) {
-        try (Connection connection = getConnection();
-             Statement statement =connection.createStatement();
-        ){
-            statement.execute(query);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }

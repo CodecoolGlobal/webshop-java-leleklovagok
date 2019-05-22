@@ -19,6 +19,12 @@ public class Product extends BaseModel {
         this.setImg(img);
     }
 
+    public Product(String name, float defaultPrice, String currencyString, String description, String img) {
+        super(name, description);
+        this.setPrice(defaultPrice, currencyString);
+        this.setImg(img);
+    }
+    
     public float getDefaultPrice() {
         return defaultPrice;
     }
@@ -77,7 +83,7 @@ public class Product extends BaseModel {
                 this.defaultCurrency.toString(),
                 this.productCategory.getName(),
                 this.supplier.getName(),
-                this.img );
+                this.img);
     }
 
     public void setImg(String img) {

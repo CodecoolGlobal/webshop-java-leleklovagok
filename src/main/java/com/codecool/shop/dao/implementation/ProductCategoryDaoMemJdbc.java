@@ -8,12 +8,7 @@ import java.sql.*; // Database addition
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductCategoryDaoMemJdbc implements ProductCategoryDao {
-    // Database addition:
-    private static final String DATABASE = "jdbc:postgresql://173.212.197.253:54321/leleklovagok";
-    private static final String DB_USER = "postgres";
-    private static final String DB_PASSWORD = "b1735e9e68e371193d5aa0e0b906da60";
-
+public class ProductCategoryDaoMemJdbc extends DatabaseDao implements ProductCategoryDao {
 
     private List<ProductCategory> data = new ArrayList<>();
     private static ProductCategoryDaoMemJdbc instance = null;
@@ -77,25 +72,4 @@ public class ProductCategoryDaoMemJdbc implements ProductCategoryDao {
         data.remove(find(id));
     }
 
-
-
-
-    // Database general: -----------------------------------------------------
-    private Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(
-                DATABASE,
-                DB_USER,
-                DB_PASSWORD);
-    }
-
-    private void executeQuery(String query) {
-        try (Connection connection = getConnection();
-             Statement statement =connection.createStatement();
-        ){
-            statement.execute(query);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-    }
 }
