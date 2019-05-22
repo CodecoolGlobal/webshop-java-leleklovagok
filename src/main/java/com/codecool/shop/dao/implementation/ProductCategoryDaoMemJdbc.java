@@ -3,6 +3,7 @@ package com.codecool.shop.dao.implementation;
 
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.model.ProductCategory;
+import com.codecool.shop.model.Supplier;
 
 import java.sql.*; // Database addition
 import java.util.ArrayList;
@@ -44,6 +45,7 @@ public class ProductCategoryDaoMemJdbc extends DatabaseDao implements ProductCat
         ){
             while (resultSet.next()){
                 ProductCategory record = new ProductCategory(
+                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getString("department"),
                         resultSet.getString("description")
@@ -64,7 +66,27 @@ public class ProductCategoryDaoMemJdbc extends DatabaseDao implements ProductCat
 
     @Override
     public ProductCategory find(int id) {
-        return data.stream().filter(t -> t.getId() == id).findFirst().orElse(null);
+        String query = "SELECT * FROM product_categories WHERE id=" + id + ";";
+        try (Connection connection = getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query);
+        ) {
+            if (resultSet.next()) {
+                ProductCategory record = new ProductCategory(
+                        resultSet.getInt("id"),
+                        resultSet.getString("name"),
+                        resultSet.getString("department"),
+                        resultSet.getString("description")
+                );
+                return record;
+            } else {
+                return null;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     @Override

@@ -76,19 +76,19 @@ public class ProductDaoMemJDBC extends DatabaseDao implements ProductDao {
 
     @Override
     public List<Product> getBy(Supplier supplier) {
-        String query = "SELECT * FROM products WHERE supplier="+ supplier.getId() + ";";
+        String query = "SELECT * FROM products WHERE supplier=" + supplier.getId() + ";";
         return getQuery(query);
     }
 
     @Override
     public List<Product> getBy(ProductCategory productCategory) {
-        //TODO
-        return null;
+        String query = "SELECT * FROM products WHERE product_category=" + productCategory.getId() + ";";
+        return getQuery(query);
     }
 
     @Override
     public List<Product> getBy(ProductCategory productCategory, Supplier supplier) {
-        //TODO
-        return null;
+        String query = "SELECT * FROM products WHERE product_category=" + productCategory.getId() + "AND supplier=" + supplier.getId() + ";";
+        return getQuery(query);
     }
 }
