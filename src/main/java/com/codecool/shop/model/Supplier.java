@@ -13,6 +13,13 @@ public class Supplier extends BaseModel {
         this.setImg(img);
     }
 
+    public Supplier(int id, String name, String description, String img) {
+        super(id, name, description);
+        this.products = new ArrayList<>();
+        this.setImg(img);
+        this.id = id;
+    }
+
     public void setProducts(ArrayList<Product> products) {
         this.products = products;
     }
