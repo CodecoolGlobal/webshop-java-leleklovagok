@@ -13,7 +13,7 @@ public class SupplierDaoMem implements SupplierDao {
 
     /* A private Constructor prevents any other class from instantiating.
      */
-    private SupplierDaoMem() {
+    public SupplierDaoMem() {
     }
 
     public static SupplierDaoMem getInstance() {
