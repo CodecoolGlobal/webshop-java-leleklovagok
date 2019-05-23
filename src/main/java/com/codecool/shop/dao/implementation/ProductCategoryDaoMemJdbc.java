@@ -94,4 +94,9 @@ public class ProductCategoryDaoMemJdbc extends DatabaseDao implements ProductCat
         data.remove(find(id));
     }
 
+    @Override
+    public void removeAll() {
+        data.clear();
+    }
+
 }

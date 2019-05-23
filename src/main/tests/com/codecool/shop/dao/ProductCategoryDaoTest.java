@@ -1,5 +1,6 @@
 package com.codecool.shop.dao;
 
+import com.codecool.shop.config.Initializer;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMemJdbc;
 import com.codecool.shop.dao.implementation.SupplierDaoMemJdbc;
@@ -21,6 +22,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 
 class ProductCategoryDaoTest {
+    private static Initializer initializer= new Initializer();
 
     static Stream<ProductCategoryDao> productCategoryDao() {
         return Stream.of(ProductCategoryDaoMemJdbc.getInstance(), ProductCategoryDaoMem.getInstance());
@@ -28,7 +30,7 @@ class ProductCategoryDaoTest {
 
     @BeforeAll
     public static void init(){
-        // TODO Initializer should start
+        initializer.readFromJSON();
     }
 
     @ParameterizedTest
@@ -37,6 +39,14 @@ class ProductCategoryDaoTest {
         System.out.println("Check reading of all product categories");
         List<ProductCategory> testList =  productCategoryDao.getAll();
         assertEquals(3, testList.size());
+    }
+
+    @ParameterizedTest
+    @MethodSource("productCategoryDao")
+    void test_find_nameCheck(ProductCategoryDao productCategoryDao) {
+        System.out.println("Check product category find by id");
+        ProductCategory testRecord =  productCategoryDao.find(3);
+        assertEquals("Codecool termékek", testRecord.name);
     }
 
 }
