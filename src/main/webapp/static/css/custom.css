@@ -8,6 +8,10 @@
     font-size: 40px;
 }
 
+.transparent {
+    opacity: 0.7;
+}
+
 .footer {
     background: transparent;
 }
