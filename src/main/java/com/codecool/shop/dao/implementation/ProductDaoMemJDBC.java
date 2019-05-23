@@ -58,7 +58,27 @@ public class ProductDaoMemJDBC extends DatabaseDao implements ProductDao {
 
     @Override
     public Product find(int id) {
-        //TODO
+        String query = "SELECT * FROM products WHERE id=" + id + ";";
+        try (Connection connection = getConnection();
+             Statement statement = connection.createStatement();
+             ResultSet resultSet = statement.executeQuery(query);
+        ) {
+            if (resultSet.next()) {
+                Product record = new Product(
+                        resultSet.getString("name"),
+                        resultSet.getFloat("defaultPrice"),
+                        resultSet.getString("currencyString"),
+                        resultSet.getString("description"),
+                        resultSet.getString("img")
+                );
+                return record;
+            } else {
+                return null;
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -90,5 +110,9 @@ public class ProductDaoMemJDBC extends DatabaseDao implements ProductDao {
     public List<Product> getBy(ProductCategory productCategory, Supplier supplier) {
         String query = "SELECT * FROM products WHERE product_category=" + productCategory.getId() + "AND supplier=" + supplier.getId() + ";";
         return getQuery(query);
+    }
+    @Override
+    public void removeAll() {
+        data.clear();
     }
 }

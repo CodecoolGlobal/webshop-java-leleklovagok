@@ -91,4 +91,9 @@ public class SupplierDaoMemJdbc extends DatabaseDao implements SupplierDao {
         data.remove(find(id));
     }
 
+    @Override
+    public void removeAll() {
+        data.clear();
+    }
+
 }

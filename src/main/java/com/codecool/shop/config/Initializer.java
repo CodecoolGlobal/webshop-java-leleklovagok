@@ -40,25 +40,15 @@ public class Initializer implements ServletContextListener {
         }
         return "{}";
     }
-
-    @Override
-    public void contextInitialized(ServletContextEvent sce) {
+    public void readFromJSON () {
         ProductDao productDataStore = ProductDaoMem.getInstance();
         ShoppingCartDao shoppingCartStore = ShoppingCartDaoMem.getInstance();
         ProductCategoryDao productCategoryDataStore = ProductCategoryDaoMem.getInstance();
         SupplierDao supplierDataStore = SupplierDaoMem.getInstance();
 
-
-
-        /*setting up a new supplier
-        Supplier amazon = new Supplier("Amazon", "Digital content and services");
-        supplierDataStore.add(amazon);
-        Supplier lenovo = new Supplier("Lenovo", "Computers");
-        supplierDataStore.add(lenovo);
-        Supplier babyStuff = new Supplier("Dreamland", "All related to babies.");
-        supplierDataStore.add(babyStuff);
-
-         */
+        productDataStore.removeAll();
+        productCategoryDataStore.removeAll();
+        supplierDataStore.removeAll();
 
         // Read JSON files
         JSONParser parser = new JSONParser();
@@ -88,22 +78,28 @@ public class Initializer implements ServletContextListener {
         // Create suppliers
         for (Object o : suppliersArray) {
             JSONObject item = (JSONObject) o;
+            String id = (String) item.get("id");
             Supplier newRecord = new Supplier(
+                    // (Integer) Integer.parseInt(id),
                     (String) item.get("name"),
                     (String) item.get("description"),
                     (String) item.get("img")
-               );
+            );
+            newRecord.setId(2);
             supplierDataStore.add(newRecord);
         }
 
         //Create product categories
         for (Object o : productCategoriesArray) {
             JSONObject item = (JSONObject) o;
+            String id = (String) item.get("id");
             ProductCategory newRecord = new ProductCategory(
+                    // (Integer) Integer.parseInt(id),
                     (String) item.get("name"),
                     (String) item.get("department"),
                     (String) item.get("description")
             );
+            newRecord.setId(Integer.parseInt(id));
             productCategoryDataStore.add(newRecord);
         }
 
@@ -128,22 +124,11 @@ public class Initializer implements ServletContextListener {
         }
 
 
-        // ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
 
-        // productCategoryDataStore.add(tablet);
-        //setting up a new product category
-        // ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
-        // ProductCategory diaper = new ProductCategory("Diaper", "Clothing", "Some cloth to shit in");
-        // productCategoryDataStore.add(tablet);
-        // productCategoryDataStore.add(diaper);
+    }
 
-        //setting up products and printing it
-        // productDataStore.add(new Product("Amazon Fire", 49.9f, "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", tablet, amazon));
-        // productDataStore.add(new Product("Lenovo IdeaPad Miix 700", 479, "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
-        // productDataStore.add(new Product("Amazon Fire HD 8", 89, "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
-        // productDataStore.add(new Product("Amazon Fire", 49.9f, "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", tablet, amazon));
-        // productDataStore.add(new Product("Lenovo IdeaPad Miix 700", 479, "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
-        // productDataStore.add(new Product("Amazon Fire HD 8", 89, "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
-        // productDataStore.add(new Product("Baby diaper 6", 55, "EUR", "Yo best shit.", diaper, babyStuff));
+    @Override
+    public void contextInitialized(ServletContextEvent sce) {
+        readFromJSON ();
     }
 }
