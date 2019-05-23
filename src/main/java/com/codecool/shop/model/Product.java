@@ -19,8 +19,9 @@ public class Product extends BaseModel {
         this.setImg(img);
     }
 
-    public Product(String name, float defaultPrice, String currencyString, String description, String img) {
+    public Product(int id, String name, float defaultPrice, String currencyString, String description, String img) {
         super(name, description);
+        this.id = id;
         this.setPrice(defaultPrice, currencyString);
         this.setImg(img);
     }
