@@ -13,9 +13,8 @@
 }
 
 body {
-    background-image: url("../img/backgrounds/bg4.png");
-    /*background-repeat: no-repeat; */
-    /* background-size: cover; */
+    background-image: url("../img/backgrounds/tw5_1.jpg");
+    background-size: cover;
 }
 
 .glyphicon {
