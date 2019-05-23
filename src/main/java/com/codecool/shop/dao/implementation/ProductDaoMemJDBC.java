@@ -37,6 +37,7 @@ public class ProductDaoMemJDBC extends DatabaseDao implements ProductDao {
         ) {
             while (resultSet.next()) {
                 Product record = new Product(
+                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getFloat("defaultPrice"),
                         resultSet.getString("currencyString"),
@@ -65,6 +66,7 @@ public class ProductDaoMemJDBC extends DatabaseDao implements ProductDao {
         ) {
             if (resultSet.next()) {
                 Product record = new Product(
+                        resultSet.getInt("id"),
                         resultSet.getString("name"),
                         resultSet.getFloat("defaultPrice"),
                         resultSet.getString("currencyString"),
