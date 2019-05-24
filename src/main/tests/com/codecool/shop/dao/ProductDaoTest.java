@@ -39,7 +39,7 @@ class ProductDaoTest {
     void test_getAll_listSize(ProductDao productDao) {
         System.out.println("Check reading of all products");
         List<Product> testList =  productDao.getAll();
-        assertEquals(7, testList.size());
+        assertEquals(8, testList.size());
     }
 
     @ParameterizedTest

@@ -61,6 +61,15 @@
     "productCategory": 3,
     "supplier": 1,
     "img": "hipnotized"
+  },
+  {
+    "name": "Mentor hipnotizálás",
+    "defaultPrice": 4000,
+    "currencyString": "EUR",
+    "description": "A beavatkozás után a mentor mindent elhisz és végrehajt bármit is mondasz neki...",
+    "productCategory": 1,
+    "supplier": 1,
+    "img": "hipnotized"
   }
 
 ]
